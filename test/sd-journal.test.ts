@@ -5,7 +5,8 @@ import util from 'util'
 import fs from 'fs'
 let t = test;
 
-if (!fs.existsSync("/run/systemd/journal/socket")) {
+if (!fs.existsSync("/run/systemd/journal/socket") || journald.socket === null) {
+    console.log('Journald not enabled, skipping tests')
     t = test.skip
 }
 
