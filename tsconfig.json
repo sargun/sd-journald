@@ -21,9 +21,11 @@
         "typeRoots": [
             "./types",
             "./node_modules/@types"
-        ]
+        ],
+        "removeComments": false
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "test/**/*"
     ]
 }

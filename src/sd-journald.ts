@@ -1,5 +1,5 @@
 // Spec derived from: https://github.com/systemd/systemd/blob/c5b6b4b6d08cf4c16a871401358faeb5a186c02a/src/journal/journal-send.c
-
+import os from 'os'
 import unix, { Socket } from 'unix-dgram'
 import { Map as ImmutableMap } from 'immutable'
 import { strict as assert } from 'assert'
@@ -27,16 +27,32 @@ export enum SyslogPrority {
     DEBUG = 7
 }
 
-class Journald {
-    syslog_identifier: string | null = null;
-    socket: Socket;
-    constructor() {
+export class Journald {
+    syslog_identifier: string;
+    socket: Socket | null;
+    constructor(syslog_identifier?: string) {
+        if (typeof syslog_identifier === 'string') {
+            this.syslog_identifier = syslog_identifier
+        } else {
+            this.syslog_identifier = process.argv0;
+        }
+        if (os.platform() !== 'linux') {
+            this.socket = null
+            return
+        }
         this.socket = unix.createSocket('unix_dgram')
         process.on('beforeExit', this.socket.close)
-        this.syslog_identifier = null;
     }
 
+    /**
+     * This sends a mesage to journald. A syslog priority is required.
+     */
     async send(priority: SyslogPrority, message: string, kv: ImmutableMap<string, string> | null): Promise<void> {
+        if (this.socket === null) {
+            process.emitWarning('Journald socket was unable to initialize')
+            return
+        }
+
         assert(priority >= 0)
         assert(priority <= 7)
 

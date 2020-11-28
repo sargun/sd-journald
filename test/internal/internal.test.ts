@@ -1,4 +1,4 @@
-import { createBuffer } from './internal'
+import { createBuffer } from '../../src/internal/internal'
 import { Map as ImmutableMap } from 'immutable'
 
 test('Basic Buffer Creation', () => {
