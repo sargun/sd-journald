@@ -4,7 +4,7 @@
   "description": "A portable library to log via the journald socket",
   "main": "dist/sd-journald.js",
   "types": "dist/sd-journald.d.ts",
-  "repository": "https://github.com/sargun/sd-journald",
+  "repository": "sargun/sd-journald",
   "author": "Sargun Dhillon <sargun@sargun.me>",
   "license": "GPL-3.0",
   "engines": {
@@ -58,5 +58,9 @@
     "verbose": true,
     "preset": "ts-jest",
     "testEnvironment": "node"
-  }
+  },
+  "files": [
+    "dist/",
+    "types/"
+  ]
 }
