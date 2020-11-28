@@ -2,7 +2,7 @@
 
 
   [![NPM Version][npm-image]][npm-url]
-  [![Build][github-image][github-url]]
+  [![Build][github-image]][github-url]
 
 [npm-image]: https://img.shields.io/npm/v/sd-journald.svg
 [npm-url]: https://npmjs.org/package/sd-journald
