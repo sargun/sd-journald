@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2019",
+        "lib": [
+            "es2019",
+            "es2018"
+        ],
+        // Enable strictest settings like strictNullChecks & noImplicitAny.
+        "strict": true,
+        // Search under node_modules for non-relative imports.
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        // Ensure that Babel can safely transpile files in the TypeScript project
+        "isolatedModules": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        // Import non-ES modules as default imports.
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "typeRoots": [
+            "./types",
+            "./node_modules/@types"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

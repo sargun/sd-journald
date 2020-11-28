@@ -1,0 +1,58 @@
+{
+  "name": "sd-journald",
+  "version": "0.1.0",
+  "description": "A portable library to log via the journald socket",
+  "main": "dist/sd-journald.js",
+  "types": "dist/sd-journald.d.ts",
+  "repository": "https://github.com/sargun/sd-journald",
+  "author": "Sargun Dhillon <sargun@sargun.me>",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/plugin-transform-typescript": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "eslint-watch": "^7.0.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "esw": "esw . --ext .js,.jsx,.ts,.tsx --watch",
+    "fmt": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "build": "babel src/ --out-dir dist/ --extensions \".ts,.tsx\""
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "unix-dgram": "^2.0.4"
+  },
+  "jest": {
+    "verbose": true,
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
