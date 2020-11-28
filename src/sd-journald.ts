@@ -4,6 +4,7 @@ import unix, { Socket } from 'unix-dgram'
 import { Map as ImmutableMap } from 'immutable'
 import { strict as assert } from 'assert'
 import { createBuffer } from './internal/internal'
+import fs from 'fs'
 const JOURNALD_SOCKET_PATH = "/run/systemd/journal/socket"
 
 export enum SyslogPrority {
@@ -37,6 +38,12 @@ export class Journald {
             this.syslog_identifier = process.argv0;
         }
         if (os.platform() !== 'linux') {
+            process.emitWarning(`Not supported on not platform ${os.platform()}`)
+            this.socket = null
+            return
+        }
+        if (!fs.existsSync(JOURNALD_SOCKET_PATH)) {
+            process.emitWarning(`Journald socket ${JOURNALD_SOCKET_PATH} not found`)
             this.socket = null
             return
         }

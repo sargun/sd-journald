@@ -4,6 +4,8 @@
   [![NPM Version][npm-image]][npm-url]
   [![Build][github-image]][github-url]
 
+[Documentation][https://github.com/sargun/sd-journald/tree/main/docs]
+
 [npm-image]: https://img.shields.io/npm/v/sd-journald.svg
 [npm-url]: https://npmjs.org/package/sd-journald
 [github-image]: https://github.com/sargun/sd-journald/workflows/CI/badge.svg

@@ -36,7 +36,7 @@
     "esw": "esw . --ext .js,.jsx,.ts,.tsx --watch",
     "fmt": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "build": "rm -rf dist && babel src/ --out-dir dist/ --extensions \".ts,.tsx\"",
-    "test": "jest ./test",
+    "test": "jest ./test --forceExit",
     "doc": "typedoc --plugin typedoc-plugin-markdown --mode modules"
   },
   "eslintConfig": {
