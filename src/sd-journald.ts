@@ -74,11 +74,7 @@ export class Journald {
         assert(!kv.contains('MESSAGE'))
 
         if (!kv.contains('SYSLOG_IDENTIFIER')) {
-            if (this.syslog_identifier !== null) {
-                kv = kv.set('SYSLOG_IDENTIFIER', this.syslog_identifier)
-            } else {
-                kv = kv.set('SYSLOG_IDENTIFIER', process.argv0)
-            }
+            kv = kv.set('SYSLOG_IDENTIFIER', this.syslog_identifier)
         }
         const buf = createBuffer(priority, message, kv)
         return new Promise((resolve, reject) => {
