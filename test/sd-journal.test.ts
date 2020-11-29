@@ -1,9 +1,27 @@
 import journald, { SyslogPrority } from '../src/sd-journald'
 import { Map as ImmutableMap } from 'immutable'
-import child_process from 'child_process'
-import util from 'util'
+import { spawn } from 'child_process'
 import fs from 'fs'
-const exec = util.promisify(child_process.exec)
+
+async function journalctl(cmd: string): Promise<string> {
+    return new Promise((resolve) => {
+        let args = ['-f', '-o', 'json']
+        args = args.concat(cmd.split(' '))
+        const subprocess = spawn('journalctl', args)
+        let body = ''
+        subprocess.stderr.on('data', (data) => {
+            body += data
+            if (body.includes('\n')) {
+                subprocess.disconnect()
+                subprocess.kill(9)
+            }
+        })
+        subprocess.stderr.on('end', () => {
+            resolve(body)
+        })
+    })
+
+}
 
 describe('Journald End-to-End Suite', () => {
     let t = test
@@ -14,22 +32,25 @@ describe('Journald End-to-End Suite', () => {
 
     t('Basic log entry', async () => {
         await journald.send(SyslogPrority.INFO, "testmessage", ImmutableMap({ "foo": "bar" }))
-        const { stdout, stderr } = await exec(`journalctl -o json MESSAGE=testmessage _PID=${process.pid}`)
-        console.log(`stderr: ${stderr}; stdout: ${stdout}`)
-        const obj = JSON.parse(stdout)
-        expect(obj).toBeTruthy()
-        expect(stderr).toBeFalsy()
+        const prom = new Promise((resolve) => {
+            journalctl(`-o json MESSAGE=testmessage _PID=${process.pid}`).then((body) => {
+                console.log(`body: ${body}`)
+                resolve(JSON.parse(body))
+            })
+        })
+        expect(prom).resolves.toMatchObject({ "MESSAGE": "testmessage" })
     })
 
 
     t('Newline log entry', async () => {
         const LONG_VALUE = "test\nvalue"
         await journald.send(SyslogPrority.INFO, "newlinemessage", ImmutableMap({ "LONG_VALUE": LONG_VALUE }))
-        const { stdout, stderr } = await exec(`journalctl -o json MESSAGE=newlinemessage _PID=${process.pid}`)
-        console.log(`stderr: ${stderr}; stdout: ${stdout}`)
-        const obj = JSON.parse(stdout)
-        expect(obj).toBeTruthy()
-        expect(obj).toMatchObject({ 'LONG_VALUE': LONG_VALUE })
-        expect(stderr).toBeFalsy()
+        const prom = new Promise((resolve) => {
+            journalctl(`-o json MESSAGE=newlinemessage _PID=${process.pid}`).then((body) => {
+                console.log(`body: ${body}`)
+                resolve(JSON.parse(body))
+            })
+        })
+        expect(prom).resolves.toMatchObject({ 'LONG_VALUE': LONG_VALUE })
     })
 })
