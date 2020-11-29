@@ -1,6 +1,6 @@
 {
   "name": "sd-journald",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A portable library to log via the journald socket",
   "main": "dist/sd-journald.js",
   "types": "dist/sd-journald.d.ts",
@@ -38,7 +38,8 @@
     "fmt": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "build": "rm -rf dist && yarn tsc --build tsconfig.prod.json && babel src/ --out-dir dist/ --extensions .ts,.js",
     "test": "jest ./test --forceExit --coverage",
-    "doc": "typedoc --plugin typedoc-plugin-markdown --mode modules"
+    "doc": "rm -fr docs && typedoc --plugin typedoc-plugin-markdown --mode modules",
+    "preversion": "yarn run build && yarn run doc"
   },
   "eslintConfig": {
     "root": true,
