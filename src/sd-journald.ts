@@ -1,6 +1,6 @@
 // Spec derived from: https://github.com/systemd/systemd/blob/c5b6b4b6d08cf4c16a871401358faeb5a186c02a/src/journal/journal-send.c
 import os from 'os'
-import unix, { Socket } from 'unix-dgram'
+import { Socket } from 'unix-dgram'
 import { Map as ImmutableMap } from 'immutable'
 import { strict as assert } from 'assert'
 import { createBuffer } from './internal/internal'
@@ -47,8 +47,11 @@ export class Journald {
             this.socket = null
             return
         }
-        this.socket = unix.createSocket('unix_dgram')
-        process.on('beforeExit', this.socket.close)
+        /* eslint-disable @typescript-eslint/no-var-requires */
+        const socket = require('unix').createSocket('unix_dgram')
+        assert(socket)
+        process.on('beforeExit', socket.close)
+        this.socket = socket
     }
 
     /**
