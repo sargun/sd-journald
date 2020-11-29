@@ -25,7 +25,7 @@
 
 •  **ALERT**:  = 1
 
-*Defined in [src/sd-journald.ts:13](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L13)*
+*Defined in [src/sd-journald.ts:14](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L14)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 •  **CRIT**:  = 2
 
-*Defined in [src/sd-journald.ts:15](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L15)*
+*Defined in [src/sd-journald.ts:16](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L16)*
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 •  **DEBUG**:  = 7
 
-*Defined in [src/sd-journald.ts:27](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L27)*
+*Defined in [src/sd-journald.ts:28](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L28)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 •  **EMERG**:  = 0
 
-*Defined in [src/sd-journald.ts:11](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L11)*
+*Defined in [src/sd-journald.ts:12](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L12)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 •  **ERR**:  = 3
 
-*Defined in [src/sd-journald.ts:17](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L17)*
+*Defined in [src/sd-journald.ts:18](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L18)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 •  **ERROR**:  = 3
 
-*Defined in [src/sd-journald.ts:18](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L18)*
+*Defined in [src/sd-journald.ts:19](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L19)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 •  **INFO**:  = 6
 
-*Defined in [src/sd-journald.ts:25](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L25)*
+*Defined in [src/sd-journald.ts:26](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L26)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 •  **NOTICE**:  = 5
 
-*Defined in [src/sd-journald.ts:23](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L23)*
+*Defined in [src/sd-journald.ts:24](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L24)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 •  **WARN**:  = 4
 
-*Defined in [src/sd-journald.ts:21](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L21)*
+*Defined in [src/sd-journald.ts:22](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L22)*
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 •  **WARNING**:  = 4
 
-*Defined in [src/sd-journald.ts:20](https://github.com/sargun/sd-journald/blob/2530053/src/sd-journald.ts#L20)*
+*Defined in [src/sd-journald.ts:21](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L21)*

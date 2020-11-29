@@ -6,23 +6,22 @@
 
 ## Index
 
-### Variables
+### Functions
 
-* [exec](_test_sd_journal_test_.md#exec)
-* [t](_test_sd_journal_test_.md#t)
+* [journalctl](_test_sd_journal_test_.md#journalctl)
 
-## Variables
+## Functions
 
-### exec
+### journalctl
 
-• `Const` **exec**: \_\_promisify\_\_ = util.promisify(child\_process.exec)
+▸ **journalctl**(`cmd`: string): Promise\<string>
 
-*Defined in [test/sd-journal.test.ts:12](https://github.com/sargun/sd-journald/blob/2530053/test/sd-journal.test.ts#L12)*
+*Defined in [test/sd-journal.test.ts:6](https://github.com/sargun/sd-journald/blob/8062a5d/test/sd-journal.test.ts#L6)*
 
-___
+#### Parameters:
 
-### t
+Name | Type |
+------ | ------ |
+`cmd` | string |
 
-• `Let` **t**: It = test
-
-*Defined in [test/sd-journal.test.ts:6](https://github.com/sargun/sd-journald/blob/2530053/test/sd-journal.test.ts#L6)*
+**Returns:** Promise\<string>
