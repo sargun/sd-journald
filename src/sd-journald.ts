@@ -90,3 +90,7 @@ export class Journald {
         })
     }
 }
+
+const journald = new Journald()
+export default journald
+export const send = journald.send

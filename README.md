@@ -13,9 +13,8 @@ Basically:
 
 Basic usage example:
 ```typescript
-import {Journald, SyslogPrority } from 'sd-journald'
+import journald, { SyslogPrority } from 'sd-journald'
 
-const journald = new Journald()
 journald.send(SyslogPrority.INFO, "Test message", null)
 ```
 

@@ -1,4 +1,4 @@
-import { Journald, SyslogPrority } from '../src/sd-journald'
+import journald, { SyslogPrority } from '../src/sd-journald'
 import { Map as ImmutableMap } from 'immutable'
 import child_process from 'child_process'
 import util from 'util'
@@ -7,7 +7,6 @@ const exec = util.promisify(child_process.exec)
 
 describe('Journald End-to-End Suite', () => {
     let t = test
-    const journald = new Journald()
     if (!fs.existsSync("/run/systemd/journal/socket") || journald.socket === null) {
         console.log('Journald not enabled, skipping tests')
         t = test.skip
