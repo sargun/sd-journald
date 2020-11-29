@@ -64,5 +64,17 @@
   "files": [
     "dist/",
     "types/"
-  ]
+  ],
+  "keywords": [
+    "journald",
+    "systemd",
+    "systemd-journald",
+    "logging",
+    "logs",
+    "structured logging",
+    "structured"
+  ],
+  "bugs": {
+    "url": "https://github.com/sargun/sd-journald/issues"
+  }
 }
