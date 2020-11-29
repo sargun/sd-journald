@@ -54,7 +54,6 @@
     ]
   },
   "dependencies": {
-    "core-js": "3",
     "immutable": "^4.0.0-rc.12",
     "unix-dgram": "^2.0.4"
   },
