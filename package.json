@@ -1,6 +1,6 @@
 {
   "name": "sd-journald",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A portable library to log via the journald socket",
   "main": "dist/sd-journald.js",
   "types": "dist/sd-journald.d.ts",
@@ -40,7 +40,7 @@
     "test": "jest ./test --forceExit --coverage",
     "doc": "rm -fr docs && typedoc --plugin typedoc-plugin-markdown --mode modules",
     "preversion": "yarn run build && if [ -d docs ]; then git rm -fr docs; fi && yarn run doc && git add docs && git commit -m \"Updating docs\"",
-    "postversion": "git push --follow-tags && yarn publish . --tag $npm_package_version"
+    "postversion": "git push --follow-tags && yarn publish . --new-version $npm_package_version"
   },
   "eslintConfig": {
     "root": true,
