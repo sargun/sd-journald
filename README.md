@@ -11,10 +11,6 @@ to a unix domain socket.
 
 Basically:
 
-```typescript
-
-```
-
 Basic usage example:
 ```typescript
 import {Journald, SyslogPrority } from 'sd-journald'
@@ -24,8 +20,7 @@ journald.send(SyslogPrority.INFO, "Test message", null)
 ```
 
 ```javascript
-const journald = require('sd-journald')
-
+// TODO: Can someone please fill this in?
 ```
 
 [npm-image]: https://img.shields.io/npm/v/sd-journald.svg
