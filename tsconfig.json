@@ -14,10 +14,8 @@
         // Ensure that Babel can safely transpile files in the TypeScript project
         "isolatedModules": true,
         "declaration": true,
-        "emitDeclarationOnly": true,
         // Import non-ES modules as default imports.
         "esModuleInterop": true,
-        "outDir": "dist",
         "typeRoots": [
             "./types",
             "./node_modules/@types"

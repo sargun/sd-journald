@@ -37,19 +37,17 @@ export class Journald {
         } else {
             this.syslog_identifier = process.argv0;
         }
+        this.socket = null
         if (os.platform() !== 'linux') {
             process.emitWarning(`Not supported on not platform ${os.platform()}`)
-            this.socket = null
             return
         }
         if (!fs.existsSync(JOURNALD_SOCKET_PATH)) {
             process.emitWarning(`Journald socket ${JOURNALD_SOCKET_PATH} not found`)
-            this.socket = null
             return
         }
         /* eslint-disable @typescript-eslint/no-var-requires */
-        const socket = require('unix').createSocket('unix_dgram')
-        assert(socket)
+        const socket = require('unix-dgram').createSocket('unix_dgram')
         process.on('beforeExit', socket.close)
         this.socket = socket
     }
@@ -58,7 +56,8 @@ export class Journald {
      * This sends a mesage to journald. A syslog priority is required.
      */
     async send(priority: SyslogPrority, message: string, kv: ImmutableMap<string, string> | null): Promise<void> {
-        if (this.socket === null) {
+        const socket = this.socket;
+        if (socket === null || socket === undefined) {
             process.emitWarning('Journald socket was unable to initialize')
             return
         }
@@ -66,7 +65,7 @@ export class Journald {
         assert(priority >= 0)
         assert(priority <= 7)
 
-        if (kv === null) {
+        if (!kv) {
             kv = ImmutableMap()
         }
 
@@ -81,7 +80,6 @@ export class Journald {
             }
         }
 
-        const socket = this.socket;
         const buf = createBuffer(priority, message, kv)
         return new Promise((resolve, reject) => {
             try {
@@ -92,6 +90,3 @@ export class Journald {
         })
     }
 }
-
-const journald = new Journald()
-export default journald

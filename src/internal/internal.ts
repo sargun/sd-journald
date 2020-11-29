@@ -17,6 +17,7 @@ export function createBuffer(priority: number, message: string, kv: ImmutableMap
     iov.push(newline);
 
     for (const [key, value] of kv) {
+        assert(typeof key === 'string')
         // The variable name must be in uppercase and consist only of characters,
         // numbers and underscores, and may not begin with an underscore.
         const upperKey = key.toUpperCase()
@@ -29,18 +30,19 @@ export function createBuffer(priority: number, message: string, kv: ImmutableMap
          * let's write the variable name, then a
          * newline, then the size (64bit LE), followed
          * by the data and a final newline */
-        if (value.includes('\n')) {
-            const buf = Buffer.alloc(upperKey.length + 1 + 8 + value.length)
+        const vstr = String(value)
+        if (vstr.includes('\n')) {
+            const buf = Buffer.alloc(upperKey.length + 1 + 8 + vstr.length)
             let n = 0;
             n += buf.write(upperKey)
             n += buf.write('\n', n)
             // writeBigUInt64LE is different, in that it returns
             // Returns: <integer> offset plus the number of bytes written.
-            n = buf.writeBigUInt64LE(BigInt(value.length), n)
-            buf.write(value, n)
+            n = buf.writeBigUInt64LE(BigInt(vstr.length), n)
+            buf.write(vstr, n)
             iov.push(buf)
         } else {
-            iov.push(Buffer.from(upperKey + "=" + value))
+            iov.push(Buffer.from(`${upperKey}=${vstr}`))
         }
 
         iov.push(newline)

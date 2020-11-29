@@ -36,7 +36,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "esw": "esw . --ext .js,.jsx,.ts,.tsx --watch",
     "fmt": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "build": "rm -rf dist && babel src/ --out-dir dist/ --extensions \".ts,.tsx\"",
+    "build": "rm -rf dist && yarn tsc --build tsconfig.prod.json && babel src/ --out-dir dist/ --extensions .ts,.js",
     "test": "jest ./test --forceExit",
     "doc": "typedoc --plugin typedoc-plugin-markdown --mode modules"
   },
@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "core-js": "3",
     "immutable": "^4.0.0-rc.12",
     "unix-dgram": "^2.0.4"
   },
