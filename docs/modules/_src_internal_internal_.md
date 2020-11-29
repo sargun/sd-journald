@@ -21,7 +21,7 @@
 
 • `Const` **LOG\_PRIORITY\_MASK**: 7 = 7
 
-*Defined in [src/internal/internal.ts:5](https://github.com/sargun/sd-journald/blob/8062a5d/src/internal/internal.ts#L5)*
+*Defined in [src/internal/internal.ts:5](https://github.com/sargun/sd-journald/blob/a4730e7/src/internal/internal.ts#L5)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • `Const` **validKey**: RegExp = new RegExp("^[A-Z0-9][A-Z0-9\_]+")
 
-*Defined in [src/internal/internal.ts:6](https://github.com/sargun/sd-journald/blob/8062a5d/src/internal/internal.ts#L6)*
+*Defined in [src/internal/internal.ts:6](https://github.com/sargun/sd-journald/blob/a4730e7/src/internal/internal.ts#L6)*
 
 ## Functions
 
@@ -37,7 +37,7 @@ ___
 
 ▸ **createBuffer**(`priority`: number, `message`: string, `kv`: ImmutableMap\<string, string>): Buffer
 
-*Defined in [src/internal/internal.ts:8](https://github.com/sargun/sd-journald/blob/8062a5d/src/internal/internal.ts#L8)*
+*Defined in [src/internal/internal.ts:8](https://github.com/sargun/sd-journald/blob/a4730e7/src/internal/internal.ts#L8)*
 
 #### Parameters:
 

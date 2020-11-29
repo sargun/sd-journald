@@ -16,7 +16,7 @@
 
 ▸ **journalctl**(`cmd`: string): Promise\<string>
 
-*Defined in [test/sd-journal.test.ts:6](https://github.com/sargun/sd-journald/blob/8062a5d/test/sd-journal.test.ts#L6)*
+*Defined in [test/sd-journal.test.ts:6](https://github.com/sargun/sd-journald/blob/a4730e7/test/sd-journal.test.ts#L6)*
 
 #### Parameters:
 

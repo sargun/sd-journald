@@ -29,7 +29,7 @@
 
 • `Const` **JOURNALD\_SOCKET\_PATH**: \"/run/systemd/journal/socket\" = "/run/systemd/journal/socket"
 
-*Defined in [src/sd-journald.ts:8](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L8)*
+*Defined in [src/sd-journald.ts:8](https://github.com/sargun/sd-journald/blob/a4730e7/src/sd-journald.ts#L8)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • `Const` **journald**: [Journald](../classes/_src_sd_journald_.journald.md) = new Journald()
 
-*Defined in [src/sd-journald.ts:90](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L90)*
+*Defined in [src/sd-journald.ts:90](https://github.com/sargun/sd-journald/blob/a4730e7/src/sd-journald.ts#L90)*
 
 ## Functions
 
@@ -45,7 +45,7 @@ ___
 
 ▸ **send**(`priority`: [SyslogPrority](../enums/_src_sd_journald_.syslogprority.md), `message`: string, `kv`: ImmutableMap\<string, string> \| null): Promise\<void>
 
-*Defined in [src/sd-journald.ts:92](https://github.com/sargun/sd-journald/blob/8062a5d/src/sd-journald.ts#L92)*
+*Defined in [src/sd-journald.ts:92](https://github.com/sargun/sd-journald/blob/a4730e7/src/sd-journald.ts#L92)*
 
 #### Parameters:
 
