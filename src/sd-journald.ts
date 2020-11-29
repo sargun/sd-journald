@@ -30,6 +30,7 @@ export enum SyslogPrority {
 
 export class Journald {
     syslog_identifier: string;
+    /* unix-dgram is full of lies and even though it implements an async API, it doesn't actually do async (for the most part) */
     socket: Socket | null;
     constructor(syslog_identifier?: string) {
         if (typeof syslog_identifier === 'string') {
@@ -79,7 +80,6 @@ export class Journald {
                 kv = kv.set('SYSLOG_IDENTIFIER', process.argv0)
             }
         }
-
         const buf = createBuffer(priority, message, kv)
         return new Promise((resolve, reject) => {
             try {
@@ -93,4 +93,6 @@ export class Journald {
 
 const journald = new Journald()
 export default journald
-export const send = journald.send
+export function send(priority: SyslogPrority, message: string, kv: ImmutableMap<string, string> | null): Promise<void> {
+    return journald.send(priority, message, kv)
+}

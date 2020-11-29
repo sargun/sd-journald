@@ -20,7 +20,8 @@
             "./types",
             "./node_modules/@types"
         ],
-        "removeComments": false
+        "removeComments": false,
+        "noEmit": true
     },
     "include": [
         "src/**/*",

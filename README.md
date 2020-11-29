@@ -3,6 +3,7 @@
 
   [![NPM Version][npm-image]][npm-url]
   [![Build][github-image]][github-url]
+  [![codecov](https://codecov.io/gh/sargun/sd-journald/branch/main/graph/badge.svg?token=91FMU8M65R)](https://codecov.io/gh/sargun/sd-journald)
 
 [Documentation](https://github.com/sargun/sd-journald/tree/main/docs)
 
