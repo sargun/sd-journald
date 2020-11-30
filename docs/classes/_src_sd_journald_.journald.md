@@ -29,7 +29,7 @@
 
 \+ **new Journald**(`syslog_identifier?`: undefined \| string): [Journald](_src_sd_journald_.journald.md)
 
-*Defined in [src/sd-journald.ts:34](https://github.com/sargun/sd-journald/blob/16ae057/src/sd-journald.ts#L34)*
+*Defined in [src/sd-journald.ts:34](https://github.com/sargun/sd-journald/blob/5997db8/src/sd-journald.ts#L34)*
 
 #### Parameters:
 
@@ -45,7 +45,7 @@ Name | Type |
 
 •  **socket**: Socket \| null
 
-*Defined in [src/sd-journald.ts:34](https://github.com/sargun/sd-journald/blob/16ae057/src/sd-journald.ts#L34)*
+*Defined in [src/sd-journald.ts:34](https://github.com/sargun/sd-journald/blob/5997db8/src/sd-journald.ts#L34)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 •  **syslog\_identifier**: string
 
-*Defined in [src/sd-journald.ts:32](https://github.com/sargun/sd-journald/blob/16ae057/src/sd-journald.ts#L32)*
+*Defined in [src/sd-journald.ts:32](https://github.com/sargun/sd-journald/blob/5997db8/src/sd-journald.ts#L32)*
 
 ## Methods
 
@@ -61,7 +61,7 @@ ___
 
 ▸ **send**(`priority`: [SyslogPrority](../enums/_src_sd_journald_.syslogprority.md), `message`: string, `kv`: ImmutableMap\<string, string> \| null): Promise\<void>
 
-*Defined in [src/sd-journald.ts:59](https://github.com/sargun/sd-journald/blob/16ae057/src/sd-journald.ts#L59)*
+*Defined in [src/sd-journald.ts:59](https://github.com/sargun/sd-journald/blob/5997db8/src/sd-journald.ts#L59)*
 
 This sends a mesage to journald. A syslog priority is required.
 
