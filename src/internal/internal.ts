@@ -30,7 +30,7 @@ export function createBuffer(priority: number, message: string, kv: ImmutableMap
          * let's write the variable name, then a
          * newline, then the size (64bit LE), followed
          * by the data and a final newline */
-        const vstr = String(value)
+        const vstr = String(value).valueOf()
         if (vstr.includes('\n')) {
             const buf = Buffer.alloc(upperKey.length + 1 + 8 + vstr.length)
             let n = 0;
